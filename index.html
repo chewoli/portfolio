@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Şevval Başbay | STUDENT PORTFOLIO</title>
+  <link rel="icon" type="image/png" href="images/portrait.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Tiny5&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <div id="splash-screen">
+    <div class="splash-container">
+      
+      <div class="title-wrapper">
+        <h1 id="retro-title">ŞEVVAL'S PORTFOLIO</h1>
+      </div>
+
+      <div class="blink-wrapper">
+        <div class="blink-start-text">click to start</div>
+      </div>
+
+      <div class="peeking-gif-wrapper">
+        <img src="images/splash-intro.gif" alt="Şevval & Froggy Animasyon" class="intro-gif" />
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <div class="title-group">
+          <a href="index.html" class="site-title font-cycle" id="cyclingTitle">SEVVAL'S PORTFOLIO</a>
+          <p class="site-subtitle"> ARCHITECTURAL STUDIES, SHEETS & DIGITAL EXPERIMENTS- <a href="about.html">ABOUT</a></p>
+        </div>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li class="nav-dropdown">
+              <a href="#projects" id="projectsToggle">PROJECTS</a>
+              <ul class="dropdown-menu" id="projectsMenu">
+                <li><a href="#" class="jump-link" data-id="0">01 Portfolio</a></li>
+                <li><a href="#" class="jump-link" data-id="1">02 Lifij</a></li>
+                <li><a href="#" class="jump-link" data-id="2">03 History</a></li>
+                <li><a href="#" class="jump-link" data-id="3">04 Shell Systems</a></li>
+                <li><a href="#" class="jump-link" data-id="4">05 Building Const.</a></li>
+                <li><a href="#" class="jump-link" data-id="5">06 Social Campus</a></li>
+                <li><a href="#" class="jump-link" data-id="6">07 Brazil Study</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html">ABOUT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro-bar container reveal">
+        <p>A growing collection of architectural studies, digital boards, and spatial experiments. This is my archive-in-progress, documenting everything I've learned and built since day one of my journey.</p>
+      </section>
+
+      <section id="projects" class="moving-strip-section reveal">
+        <div class="container strip-heading">
+          <h2>Moving Studies</h2>
+          <p>Hover to pause. Wanna know more info? <strong>Click the froggy.</strong> Click each project to open its panel.</p>
+        </div>
+<div class="strip-controls">
+  <button id="toggle-carousel-btn" class="retro-btn" aria-label="Pause Carousel">
+    <span class="btn-icon">⏸</span> <span class="btn-text">Clıck to stop</span>
+  </button>
+</div>
+        <div class="strip-viewport">
+  <a href="about.html" class="frog-runner" aria-label="Go to About page">
+    <img src="images/frog-jump.gif" alt="Jumping frog" />
+  </a>
+
+          <div class="strip-track">
+            <article class="study-card book-trigger" 
+                     data-title="FIRST PORTFOLIO" 
+                     data-text="My first booklet portfolio containing my early architectural studies, structural layouts, and design steps." 
+                     data-images="images/portfolio-1.png,images/portfolio-2.png,images/portfolio-3.png,images/portfolio-4.png,images/portfolio-5.png,images/portfolio-6.png,images/portfolio-7.png,images/portfolio-8.png,images/portfolio-9.png">
+              <span class="card-badge badge-new">FIRST-BORN</span>
+              <div class="card-image-wrap">
+                <img src="images/portfolio-1.png" alt="First Portfolio Cover" />
+              </div>
+              <div class="card-text">
+                <h3>FIRST PORTFOLIO</h3>
+                <p>My first booklet portfolio.</p>
+              </div>
+            </article>
+
+            <article class="study-card project-trigger" data-layout="single" data-title="Hüseyin Avni Lifij: Art & Interpretation" data-text="A research and visual interpretation study from my first year, focusing on the artistic language of Hüseyin Avni Lifij. This project explores his use of symbolism, atmospheric color palettes, and the poetic relationship between image and emotion. One of my favorite studies where I deeply enjoyed exploring the transition from realism to symbolism." data-images="images/project-2.png">
+              <span class="card-badge badge-popular">FAV</span>
+              <div class="card-image-wrap">
+                <img src="images/project-2.png" alt="Hüseyin Avni Lifij Research Board" />
+              </div>
+              <div class="card-text">
+                <h3>Hüseyin Avni Lifij</h3>
+                <p>Art history research & visual interpretation.</p>
+              </div>
+            </article>
+
+            <article class="study-card project-trigger" data-layout="single" data-title="History of Art & Architecture: Leporello" data-text="Final submission for the Art and Architecture History course, designed in a 'leporello' format. This board functions as a cultural mapping and a visual roadmap, tracing the evolution of major art movements—from Romanticism and Realism to Brutalism and Deconstructivism. It integrates architectural theories, key movements like Metabolism, and master architects into a single, continuous narrative flow." data-images="images/project-3.png">
+              <span class="card-badge badge-new">LEPORELLO</span>
+              <div class="card-image-wrap">
+                <img src="images/project-3.png" alt="Art and Architecture History Leporello Board" />
+              </div>
+              <div class="card-text">
+                <h3>Art & Architecture History</h3>
+                <p>A visual roadmap of architectural movements.</p>
+              </div>
+            </article>
+
+            <article class="study-card project-trigger" data-layout="single" data-title="Shell Systems" data-text="Final project for the 'Structural Form and Spatial Relations' course. This study examines the evolution of shell structures—from historical precedents like the Pantheon to modern digital grids—focusing on the integration of geometry, material diversity, and structural efficiency." data-images="images/project-4.png">
+              <div class="card-image-wrap">
+                <img src="images/project-4.png" alt="Shell Systems Research Board" />
+              </div>
+              <div class="card-text">
+                <h3>Shell Systems</h3>
+                <p>Structural form and spatial relations research.</p>
+              </div>
+            </article>
+
+            <article class="study-card project-trigger" data-layout="gallery" data-title="Yapı Bilgisi 2" data-text="A rigorous three-month group collaboration focused on the detailed structural analysis and construction systems of a complex building. Every single detail, from foundation to roof, was executed through hand-drawing, emphasizing structural precision and technical documentation." data-images="images/project-5-1.png,images/project-5-2.png,images/project-5-3.png,images/project-5-4.png,images/project-5-5.png,images/project-5-6.png,images/project-5-7.png,images/project-5-8.png,images/project-5-9.png,images/project-5-10.png,images/project-5-11.png,images/project-5-12.png,images/project-5-13.png,images/project-5-14.png,images/project-5-15.png,images/project-5-16.png,images/project-5-17.png,images/project-5-18.png,images/project-5-19.png,images/project-5-20.png,images/project-5-21.png">
+              <span class="card-badge badge-new">BRUTAL</span>
+              <div class="card-image-wrap"><img src="images/project-5-1.png" alt="Yapı 2" /></div>
+              <div class="card-text"><h3>Building Construction II</h3><p>Detailed structural analysis & hand-drawn set.</p></div>
+            </article>
+
+            <article class="study-card project-trigger" data-layout="single" data-title="Architectural Design I: Social Campus" data-text="A design proposal for a social campus in Kuruçeşme, Istanbul. This project explores the integration of a complex program into a steeply sloped site, utilizing SketchUp for extensive 3D modeling and massing studies. It represents my first comprehensive digital submission, where I utilized Photoshop to merge site analysis, topographic data, and architectural visualizations into a unified presentation." data-images="images/project-6.png">
+              <span class="card-badge badge-popular">DIGITAL DEBUT</span>
+              <div class="card-image-wrap">
+                <img src="images/project-6.png" alt="Kuruçeşme Social Campus - Architectural Design I Board" />
+              </div>
+              <div class="card-text">
+                <h3>Architectural Design I</h3>
+                <p>SketchUp modeling & digital presentation.</p>
+              </div>
+            </article>
+
+            <article class="study-card project-trigger" data-layout="gallery" data-title="Environmental Design: Brazil" data-text="A collaborative research project for the Environmental Design course, focusing on the architectural and environmental vulnerabilities of Brazil. The study analyzes the socio-spatial complexity of favelas and the ecological importance of the Amazon rainforest. This project marks my first professional experience in digital design collaboration, where our group synthesized data on climate, topography, and urban fragility into a comprehensive visual narrative." data-images="images/project-7-1.png,images/project-7-2.png">
+              <span class="card-badge badge-popular">BRAND-NEW</span>
+              <div class="card-image-wrap">
+                <img src="images/project-7-1.png" alt="Brazil Environmental Design Analysis" />
+              </div>
+              <div class="card-text">
+                <h3>Environmental Design</h3>
+                <p>Climate & urban vulnerability analysis.</p>
+              </div>
+            </article>
+          </div>
+          
+
+            <div class="loop-duplicate"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bottom-panel container reveal">
+        <div class="panel-box">
+          <h3>ABOUT THIS SITE</h3>
+          <p>A moving archive designed to showcase architectural studies as a continuous sequence rather than a static grid.</p>
+        </div>
+
+        <div class="panel-box">
+          <h3>HOW TO NAVIGATE</h3>
+          <p>Click project cards to open panels. Use the arrows for booklets and click images to enlarge.</p>
+        </div>
+
+        <div class="panel-box panel-link">
+          <a href="about.html">GO TO ABOUT →</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row"><p>© 2026 Şevval Başbay</p><a href="about.html">ABOUT</a></div>
+    </footer>
+  </div>
+
+  <div class="book-modal" id="bookModal" aria-hidden="true">
+    <div class="book-overlay" id="bookOverlay"></div>
+    <div class="book-window">
+      <button class="book-close" id="bookClose">×</button>
+      <div class="book-viewer">
+        <button class="book-nav" id="prevPage">←</button>
+        <div class="book-page-stage">
+          <div class="book-page-shell" id="bookPageShell">
+            <div class="book-page intro-page" id="bookIntroPage">
+              <span class="book-kicker">PROJECT 01</span>
+              <h3>Dönem Sonu Portfolyosu</h3>
+              <p>Sağ oka basarak inceleyebilirsin.</p>
+            </div>
+            <img id="bookImage" src="" alt="Page" class="book-image-hidden" />
+          </div>
+        </div>
+        <button class="book-nav" id="nextPage">→</button>
+      </div>
+      <div class="book-footer"><p id="pageCounter">Intro</p></div>
+    </div>
+  </div>
+
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="project-overlay" id="projectOverlay"></div>
+    <div class="project-window">
+      <button class="project-close" id="projectClose">×</button>
+      <div class="project-window-text"><h3 id="projectTitle"></h3><p id="projectText"></p></div>
+      <div class="project-single-area" id="projectSingleArea"><div class="project-window-image"><img id="projectImg" src="" alt="Preview" /></div></div>
+      <div class="project-gallery-area" id="projectGalleryArea"><div class="project-gallery-grid" id="projectGalleryGrid"></div></div>
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox"><img id="lightboxImg" src="" alt="Full view" /></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
