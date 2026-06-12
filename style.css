@@ -259,66 +259,16 @@ ul {
   max-width: 34ch;
 }
 
-/* ---------------- FROG ---------------- */
-.frog-runner {
-  position: absolute;
-  left: -100px;
-  top: 0rem;
-  z-index: 20;
-  animation: frogRun 11s linear infinite;
-}
 
-.frog-runner img {
-  width: 64px;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 2px 0 rgba(22, 32, 24, 0.14));
-  transition: opacity 0.2s ease, filter 0.2s ease;
-}
 
-.frog-runner:hover img {
-  opacity: 0.92;
-  filter: drop-shadow(0 3px 0 rgba(22, 32, 24, 0.22));
-}
-
-.strip-viewport:hover .frog-runner,
-.strip-viewport:hover .strip-track {
-  animation-play-state: paused;
-}
-
+/* 🚀 SADECE SOLDAN SAĞA PÜRÜZSÜZ KAYDIRMA MOTORU */
 @keyframes frogRun {
   0% {
-    transform: translateX(0) translateY(18px) rotate(0deg);
-  }
-  10% {
-    transform: translateX(150px) translateY(0px) rotate(-10deg);
-  }
-  20% {
-    transform: translateX(300px) translateY(18px) rotate(0deg);
-  }
-  30% {
-    transform: translateX(470px) translateY(2px) rotate(-10deg);
-  }
-  40% {
-    transform: translateX(640px) translateY(18px) rotate(0deg);
-  }
-  50% {
-    transform: translateX(820px) translateY(0px) rotate(-10deg);
-  }
-  60% {
-    transform: translateX(1000px) translateY(18px) rotate(0deg);
-  }
-  70% {
-    transform: translateX(1180px) translateY(2px) rotate(-10deg);
-  }
-  80% {
-    transform: translateX(1370px) translateY(18px) rotate(0deg);
-  }
-  90% {
-    transform: translateX(1560px) translateY(0px) rotate(-10deg);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(1760px) translateY(18px) rotate(0deg);
+    /* Ekran genişliğine göre kurbağanın şeridin sonuna kadar pürüzsüz akmasını sağlar */
+    transform: translateX(calc(100vw + 150px)); 
   }
 }
 
@@ -549,7 +499,9 @@ ul {
   transition: opacity 0.22s ease, visibility 0.22s ease;
 }
 
-.book-modal.active {
+/* 🎯 GARANTİ AÇILIŞ: Hem 'active' hem 'is-active' sınıflarını destekliyoruz */
+.book-modal.active,
+.book-modal.is-active {
   opacity: 1;
   visibility: visible;
 }
@@ -584,6 +536,7 @@ ul {
   background: #f8fbf6;
   color: #162018;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .book-viewer {
@@ -614,20 +567,28 @@ ul {
   transform-style: preserve-3d;
 }
 
-.book-page,
-.book-page-shell img {
+/* 🎯 GÖRÜNÜRLÜK KİLİT KIRICI: Resimleri ve sayfaları birbirinden bağımsız kurallarla netleştiriyoruz */
+.book-page {
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
-}
-
-.book-page {
   padding: clamp(1.2rem, 3vw, 2.5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#bookImage {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  object-fit: contain;
+  display: block !important; /* JS gizleme sınıfını kaldırınca tarayıcıyı resmi göstermeye zorlar */
 }
 
 .book-kicker {
@@ -652,18 +613,16 @@ ul {
   font-weight: 700;
 }
 
-.book-page-shell img {
-  object-fit: contain;
-}
-
+/* 🎯 GİZLEME SINIFLARI: !important ile tarayıcıya kesin emir veriyoruz */
 .book-image-hidden {
-  display: none;
+  display: none !important;
 }
 
 .book-page-hidden {
-  display: none;
+  display: none !important;
 }
 
+/* --- ANIMASYONLAR --- */
 .book-page-shell.flip-next {
   animation: flipNext 0.5s ease;
 }
@@ -673,33 +632,15 @@ ul {
 }
 
 @keyframes flipNext {
-  0% {
-    transform: rotateY(0deg) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: rotateY(-18deg) scale(0.985);
-    opacity: 0.75;
-  }
-  100% {
-    transform: rotateY(0deg) scale(1);
-    opacity: 1;
-  }
+  0% { transform: rotateY(0deg) scale(1); opacity: 1; }
+  50% { transform: rotateY(-18deg) scale(0.985); opacity: 0.75; }
+  100% { transform: rotateY(0deg) scale(1); opacity: 1; }
 }
 
 @keyframes flipPrev {
-  0% {
-    transform: rotateY(0deg) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: rotateY(18deg) scale(0.985);
-    opacity: 0.75;
-  }
-  100% {
-    transform: rotateY(0deg) scale(1);
-    opacity: 1;
-  }
+  0% { transform: rotateY(0deg) scale(1); opacity: 1; }
+  50% { transform: rotateY(18deg) scale(0.985); opacity: 0.75; }
+  100% { transform: rotateY(0deg) scale(1); opacity: 1; }
 }
 
 .book-nav {
@@ -710,6 +651,7 @@ ul {
   color: #162018;
   font-family: "Press Start 2P", cursive;
   font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .book-footer {
@@ -720,7 +662,6 @@ ul {
 .book-footer p {
   font-size: 0.62rem;
 }
-
 /* ---------------- PROJECT MODAL ---------------- */
 .project-modal {
   position: fixed;
@@ -1193,4 +1134,398 @@ ul {
 .panel-link:hover a {
   color: #162018 !important;
 }
+
+/* 1. ANA KONTEYNER: Ekranı tam kapla ve karart */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a230a; /* Senin sevdiğin o koyu brutalist yeşil */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* 2. ANİMASYON ALANI: Görsellerin duracağı yer */
+.peeking-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3. RESİMLER: Sığdırma ve Piksel Ayarı */
+.peek-frame {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%); /* Tam merkeze hizala */
+    
+    /* GÖRSELİ sığdırma ayarı */
+    max-width: 100vw;  /* Ekran genişliğini geçme */
+    max-height: 100vh; /* Ekran yüksekliğini geçme */
+    width: auto; height: auto; /* Oranları koru */
+    
+    /*object-fit: contain; /* Alternatif: Bu da sığdırır ama boşluk bırakabilir */
+    
+    /* PİKSEL ART BOZULMAMASI İÇİN (Kritik!) */
+    image-rendering: pixelated; 
+    image-rendering: crisp-edges;
+    
+    opacity: 0; /* Başlangıçta gizli */
+    transition: opacity 0.1s; 
+}
+/* 4. ANİMASYON RİTMİ (Göz Kırpma ve Nefes) */
+
+/* Frame 1: Göz Açık - Varsayılan halin */
+.peek-frame.frame-1 {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Frame 2: Kurbağa Nefes Alıyor (Nefes Alma Ritmi) */
+@keyframes breathing {
+    0%, 40%, 100% { opacity: 0; }
+    50%, 90% { opacity: 1; }
+}
+.peek-frame.frame-2 {
+    animation: breathing 6s infinite;
+    z-index: 2;
+}
+
+/* Frame 3: Göz Kırpma (Anlık Hareket) */
+@keyframes blinkOnly {
+    0%, 94%, 100% { opacity: 0; }
+    95%, 98% { opacity: 1; } /* Saniyenin onda biri kadar görünür */
+}
+.peek-frame.frame-3 {
+    animation: blinkOnly 4s infinite;
+    z-index: 3;
+}
+
+/* 5. YAZI: Alttaki küçük tıkla ibaresi */
+.click-hint {
+    position: absolute;
+    bottom: 40px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #e8f5ca;
+    text-shadow: 2px 2px 0px #000;
+    letter-spacing: 2px;
+    z-index: 100;
+}
+
+/* ==========================================================================
+   🎮 RETRO INTRO SEQUENCE & OVERLAY SYSTEM (ŞEVVAL'S PORTFOLIO)
+   ========================================================================== */
+
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  background-color: #b9c8b2; /* Kırpılmış transparan GIF ile kusursuz arka plan tonu */
+  z-index: 999999; /* Tüm modal ve sitenin en tepesinde kalması için katman yükseltildi */
+  overflow: hidden;
+  cursor: pointer;
+  /* Tıklandığında pürüzsüz retro adımlarla (steps) yukarı kayarak yok olacak */
+  transition: transform 0.5s steps(8) ease-in, opacity 0.4s ease, visibility 0.4s;
+}
+
+#splash-screen.fade-out {
+  transform: translateY(-100vh);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 🔡 ANA BAŞLIK KUTUSU (ÖNCE ORTADA, SONRA YUKARI YAVAŞÇA TIRMANAN) */
+.title-wrapper {
+  position: absolute;
+  top: 42%; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+  padding: 0 20px;
+  animation: introMoveTitleUp 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes introMoveTitleUp {
+  to {
+    top: 13%; 
+  }
+}
+
+/* 🔥 FORMATI DEĞİŞİRKEN ASLA ALTTAKİ ELEMANI İTMEYEN BAŞLIK */
+#retro-title {
+  font-size: 2.5rem; 
+  letter-spacing: 2px;
+  line-height: 50px; 
+  text-shadow: 4px 4px 0px #edf3e8;
+  display: block;
+  margin: 0;
+  padding: 0;
+  animation: introFontAndColorGlitch 1.4s steps(1) infinite;
+}
+
+@keyframes introFontAndColorGlitch {
+  0%, 100% { 
+    font-family: 'Press Start 2P', cursive, monospace; 
+    color: #162018; 
+    font-size: 2.3rem;
+  }
+  25% { 
+    font-family: 'VT323', monospace; 
+    font-size: 4rem; 
+    color: #633e24; 
+    letter-spacing: 5px;
+  }
+  50% { 
+    font-family: 'Silkscreen', sans-serif, monospace; 
+    font-size: 2.6rem;
+    color: #4b6344; 
+    transform: skewX(-2deg);
+  }
+  75% { 
+    font-family: 'Press Start 2P', cursive, monospace; 
+    color: #162018;
+    font-size: 2.3rem;
+    font-style: italic;
+  }
+}
+
+/* 📍 BAŞLIKLA BERABER TAM ORTADA DOĞUP, ONUNLA BERABER YUKARI SÜZÜLEN SABİT KUTU */
+.blink-wrapper {
+  position: absolute;
+  top: 51%; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  z-index: 25;
+  animation: introMoveBlinkUp 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes introMoveBlinkUp {
+  to {
+    top: 24%; 
+  }
+}
+
+/* ✨ İNCE RETRO: CLICK TO START */
+.blink-start-text {
+  font-family: 'VT323', monospace; 
+  font-size: 2.2rem;
+  color: #162018;
+  letter-spacing: 2px;
+  opacity: 0;
+  line-height: 30px; 
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  animation: introArcadeBlink 0.8s ease infinite alternate;
+  animation-delay: 2.6s; 
+}
+
+@keyframes introArcadeBlink {
+  0% { opacity: 0; }
+  100% { opacity: 0.8; }
+}
+
+/* 🚀 İDEAL BOYUTA GETİRİLMİŞ, TABANA SIFIR YAVAŞ ASANSÖR GIF SİSTEMİ */
+.peeking-gif-wrapper {
+  position: absolute;
+  bottom: -750px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 660px; 
+  max-width: 95vw;
+  height: auto;
+  image-rendering: pixelated; 
+  z-index: 10;
+  animation: introSlideUpSlow 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.intro-gif {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes introSlideUpSlow {
+  to {
+    bottom: 0px; 
+  }
+}
+/* ==========================================================================
+   🐸 MOVING STUDIES - FULLSCREEN GIF MASKOT SİSTEMİ (NİHAİ ZAFER)
+   ========================================================================== */
+
+.frog-runner {
+  /* 🎯 TAM EKRAN ÇİVİLEME */
+  position: absolute;
+  
+  /* 🎯 KIRPILMA VE HİZALAMA ÇÖZÜMÜ: 
+     Değeri pozitif yapıp aşağı indirdik. Böylece kurbağanın sırtı yukarıdaki overflow duvarına 
+     çarpmayacak (kırpılma bitecek) ve poposu tam pafta posterlerinin üst siyah çizgisine yaslanacak! */
+  top: 15px;            
+  
+  left: 0;
+  width: 100vw;         /* Ekran genişliği kadar yayıl */
+  height: auto;
+  
+  z-index: 999;         /* Pafta posterlerinin kesinlikle en üstünde görünmesi için */
+  display: block;
+  pointer-events: none; /* Intro ekranındaki tıklamaları yutmasını kesin olarak engeller */
+  overflow: hidden;
+}
+ 
+.frog-runner img {
+  /* 🎯 GERÇEK BOYUT DEVRİMİ: Kurbağa o dev transparan sayfanın içinde orijinal olarak 
+     nasıl konumlandırıldıysa, ekran genişliğini tam kaplayarak (`100%`) o nizamı korur. */
+  width: 100% !important;  
+  height: auto;
+  display: block;
+  
+  /* Devasa büyümesine rağmen pixel art yapısının cam gibi keskin ve retro kalmasını sağlar */
+  image-rendering: pixelated; 
+  
+  /* İstediğin gibi tertemiz, sıfır gölge */
+  filter: none !important;
+  
+  pointer-events: auto; /* Sadece kurbağanın kendi piksellerine tıklandığında About linki çalışsın */
+}
+
+/* Kurbağanın üzerine fareyle gelindiğinde */
+.frog-runner:hover img {
+  opacity: 0.95;
+}
+
+/* Şeride fareyle gelindiğinde pafta kartları durur ama kurbağamız sabit katman olduğu için zıplamaya devam eder */
+.strip-viewport:hover .strip-track {
+  animation-play-state: paused;
+}
+/* ==========================================================================
+   💬 PORTRE ALTINDAKİ BAĞIMSIZ İPUCU METNİ STİLLERİ
+   ========================================================================== */
+
+.portrait-hint {
+  margin-top: 15px;
+  font-family: 'Inter', sans-serif; /* Sitenin modern-retro nizamına tam uyum */
+  font-size: 11px;
+  font-weight: 500;
+  color: #233226; /* Projedeki koyu yeşil/siyah tonun */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #faf8f5; /* Sitenin temiz krem/off-white arka planı */
+  padding: 8px 12px;
+  border: 1px dashed #233226; /* Kesikli retro çerçeve */
+  border-radius: 4px;
+  width: 100%; /* Sütun genişliğine tam yayıl */
+  box-sizing: border-box;
+}
+
+/* Sol taraftaki şimşeğin tatlı tatlı yanıp sönmesi için arcade animasyonu */
+.hint-blink {
+  color: #e5a93b; /* Hafif retro sarı/altın tonu */
+  font-weight: bold;
+  margin-right: 4px;
+  animation: arcadeFlash 1.2s steps(2, start) infinite;
+}
+
+@keyframes arcadeFlash {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* ==========================================================================
+   💬 PORTRE ÜSTÜNE GELEN SAF YANIP SÖNEN İPUCU METNİ
+   ========================================================================== */
+
+.portrait-hint-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800; /* Daha kalın ve belirgin yaptık */
+  
+  /* 🎯 RENK GÜNCELLEMESİ: Soluk gri-yeşili çöpe attık, başlığındaki o meşhur parlak retro tonu çaktık! */
+  color: #559238; 
+  
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  text-shadow: 1px 1px 0px #233226; /* Yazı patlarken arka planda okunsun diye hafif gölge ekledim */
+  animation: retroTextBlink 1.4s ease-in-out infinite;
+}
+/* Tüm yazıyı pürüzsüzce yanıp söndüren animasyon */
+@keyframes retroTextBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2; /* Tamamen yok olmak yerine çok hafif transparan kalsın ki gözü yormasın */
+  }
+}
+
+/* ==========================================================================
+   🕹️ MOVING STUDIES - RETRO BUTON VE ANIMASYON DURDURMA KİLİDİ
+   ========================================================================== */
+
+.strip-controls {
+  display: flex;
+  justify-content: flex-end; /* Butonu sağ tarafa hizalar */
+  padding: 0 2rem 1rem 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.retro-btn {
+  background-color: #233226; /* İlk fotoğraftaki o karizma koyu yeşil/siyah ton */
+  border: 2px solid #233226;
+  color: #faf8f5; /* Krem rengi yazı */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 3px 3px 0px #faf8f5, 5px 5px 0px #233226; /* Çift katman retro gölge */
+}
+
+.retro-btn:hover {
+  background-color: #faf8f5;
+  color: #233226;
+  box-shadow: 1px 1px 0px #233226;
+  transform: translate(2px, 2px);
+}
+
+/* 🎯 JAVASCRIPT'İN TETİKLEYECEĞİ ANIMASYON DURDURMA SINIFI */
+.strip-track.is-paused {
+  animation-play-state: paused !important; /* Döngüyü olduğu yerde dondurur */
+}
+
+
 
